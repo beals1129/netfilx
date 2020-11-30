@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    #hero { width: 100% ; height: 100vh; position: relative; overflow: hidden;} 
+    #feature {width: 100% ; height: 100vh; position: relative;}
+    #hero_title{ position: absolute; top: 300px; left: 100px; font-size: 72px;
+    opacity: 1; white-space:nowrap; /* <  자동줄바꿈 방지 */}
+    #feature_title {position: absolute; top: 300px; left: 100px; font-size: 72px;}
+
+    .animtion_zoom { opacity:0; animation: scale 2s ease both;}
+    .none_ani { opacity:1;  }
+    #img {
+        width: 100%; height: 100vh;
+        background-color: black;
+    }
+    
+    .photo_figure{
+            width: 100px;
+            margin: 0 auto;
+            opacity :0;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .img_grad{
+            background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,1,1) 17%, rgba(255,255,255,0) 100%);
+        }
+    svg.swipper_red {
+        width: 42px;
+        height: 42px;
+
+        stroke-dasharray:70;
+        stroke-dashoffset:70;
+        transform: rotate(-90deg);
+
+        }
+        svg.red_animtion {
+            width: 42px;
+        height: 42px;
+        stroke-dasharray:70;
+        stroke-dashoffset:70;
+        transform: rotate(-90deg);
+        animation: dash 5.9s linear ;
+
+        }
+
+    @keyframes scale {
+        0% { font-size: 800px; opacity: 0;}
+        100% {font-size: 72px; opacity: 1;}
+    }
+
+    
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 70;
+  }
+  5% {
+    stroke-dashoffset: 70;
+  }
+  100%{
+      stroke-dashoffset:0;
+  }
+}
+</style>
+<body>
+    <section id="hero">
+        <h1 id="hero_title">Hello World</h1>
+    </section>
+
+    <section id="feature">
+        <h1 id="feature_title">Hello World</h1>
+        <svg id="swipperRed" class="swipper_red"  viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="none" stroke="#da291c" stroke-width="1"></circle></svg>
+
+    </section>
+
+    <section id="img">
+        <div class="img_grad"></div>
+        <figure class="photo_figure">
+            <img src="img/m_bg_3.jpg">
+        </figure>
+        
+
+    </section>
+    <script>
+        // var hero = document.getElementById('hero_title')
+        // hero.addEventListener('click',zoomIn)
+        // function zoomIn() {
+        //     document.getElementById('hero_title').className = "animtion_zoom"; 
+        //     document.querySelector("svg.swipper_red").setAttribute( 'class',"none_ani");
+        //     setTimeout (function(){
+                
+
+        //     } , 2000);
+
+          
+            
+            
+        // }
+
+      
+var featureAniStartPos = document.getElementById('feature').offsetTop - window.innerHeight;
+var imgAniStartPos = document.getElementById('img').offsetTop - window.innerHeight;            console.log(window.scrollY);
+            console.log(window.innerHeight);
+            console.log(imgAniStartPos);
+        function scrollEvent () { 
+            
+
+            if ( window.scrollY > featureAniStartPos ) {
+                document.getElementById('feature')
+
+            } // 이거 활용해서 애니메이션 넣기 
+
+
+            if (window.scrollY > imgAniStartPos && window.scroll - imgAniStartPos + 400 ){ // 원하는 구간이 넘어가는 순간  // 세로길이가 400보다 작을 때 
+                var scrollDelta = window.scrollY - imgAniStartPos;
+                document.querySelectorAll('.photo_figure')[0].style = " width : " + (100 + 1 * scrollDelta)+"px"; // 크기 바꿔주는 
+                document.querySelectorAll('.photo_figure')[0].style = " opacity : " + (0 +0.01 * scrollDelta); //500pixel 넘어가야 어두워지는 것 
+                // document.querySelectorAll('.img_grad')[0].style = " background: " + "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,1,1) " 17 - scrollDelta " %,  rgba(255,255,255,0) 100%); 
+                //500pixel 넘어가야 어두워지는 것 
+            }
+            //     document.querySelectorAll('.photo')[0].style = " opacity :0.5"
+            // } else if ( window.scrollY > imgAniStartPos + 100 ) {
+            //     document.querySelectorAll('.photo')[0].style = " opacity :0.6"
+            // } else if ( window.scrollY > imgAniStartPos + 150 ) {
+            //     document.querySelectorAll('.photo')[0].style = " opacity :0.7"
+            // } else if ( window.scrollY > imgAniStartPos + 200 ) {
+            //     document.querySelectorAll('.photo')[0].style = " opacity :0.8"
+            // } else if ( window.scrollY > imgAniStartPos + 250 ) {
+            //     document.querySelectorAll('.photo')[0].style = " opacity :0.9"
+            // } else if ( window.scrollY > imgAniStartPos + 300 ) {
+            //     document.querySelectorAll('.photo')[0].style = " opacity :1"
+            // }
+        }
+    </script>
+</body>
+</html>

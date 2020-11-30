@@ -1,0 +1,78 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@font-face {
+    font-family:'Nike Futura';
+    src:url(../font/nike-futura.woff2) format('woff2');
+    }
+    
+@font-face {
+    font-family:'Nike TG';
+    src:url(../font/niketg.woff2) format('woff2');
+    }
+    
+* {
+    margin: 0; 
+    
+}
+header {  overflow: hidden;}
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #111;
+    box-sizing: border-box;
+    -webkit-font-smoothing:antialiased;
+    
+}
+ul {list-style: none; padding: 0;}
+
+a { text-decoration: none; color: rgb(17, 17, 17)}
+a:hover { cursor: pointer;}
+
+button{
+    padding: 7px 17px;
+    border-radius: 3px;
+    background-color: #e50914;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+h1 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: normal;
+    margin:0  75px ;
+
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: normal;
+
+}
+h3 {
+    font-size: 19.2px;
+    font-weight: 400;
+    line-height: normal;
+
+
+}
+
+p{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+/* header */
+
+header {
+    width : 100%;
+}
